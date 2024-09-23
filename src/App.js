@@ -1,23 +1,31 @@
-import logo from './logo.svg';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
-
+import Header from "./components/Header.js";
+import MainSec from "./components/MainSec.js";
+import MyProject from './components/MyProject.js';
+import Skills from './components/Skills.js';
+import Footer from './components/Footer.js';
+import React, {useRef} from 'react'
 function App() {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header />
+      <Router>
+        <Routes>
+          <Route >
+            <Route path="/" element={<MainSec />} />
+            <Route path="home" element={<MainSec />} />
+            <Route path="*" element={"This page is not found!"}/>
+          </Route>
+        </Routes>
+      </Router>
+      <Skills />
+      <MyProject />
+      {/* <ImageSec />
+      <GetInTouch /> */}
+      <Footer />
+    
     </div>
   );
 }
